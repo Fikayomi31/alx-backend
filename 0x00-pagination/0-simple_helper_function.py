@@ -2,9 +2,9 @@
 """
 Function that two 2 integer argument
 """
+from typing import Tuple
 
-
-def index_range(page, page_size):
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Return tuple of size twobcontaining a start index
     and an end index
