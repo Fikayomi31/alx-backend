@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""defining a Server class for paginate"""
 import csv
 import math
 from typing import List, Tuple
@@ -28,7 +30,7 @@ class Server:
         assert isinstance(page, int) and isinstance(page_size, int)
         assert page > 0 and page_size > 0
         start_page, end_page = self.index_range(page, page_size)
-        return self.__dataset()[start_page:end_page]
+        return self.dataset()[start_page:end_page]
 
     def index_range(self, page: int, page_size: int) -> Tuple[int, int]:
         """Doc
