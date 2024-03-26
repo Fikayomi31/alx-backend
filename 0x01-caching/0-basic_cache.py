@@ -12,14 +12,14 @@ class BasicCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """Assigning the dict 
+        """Assigning the dict
         Args:
             key: key of the item
             item: the item of the key
         """
         if key and item:
             self.cache_data[key] = item
-    
+
     def get(self, key):
         """Returning the value of the key or
         None if key is None
@@ -28,4 +28,3 @@ class BasicCache(BaseCaching):
         """
         if key:
             return self.cache_data.get(key, None)
-        
