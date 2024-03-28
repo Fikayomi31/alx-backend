@@ -21,7 +21,7 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data[key] = item
         # check length of the cache_data with MAX_ITEMS
-        if len(self.cache_data) > self.MAX_ITEMS:
+        if len(self.cache_data) >= self.MAX_ITEMS:
             # iterating over the items in the self.cache_data
             diter = iter(self.cache_data.items())
             # next is used to retrieve the first item
