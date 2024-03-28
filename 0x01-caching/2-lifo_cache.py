@@ -9,7 +9,7 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         """Initilization of the class"""
         super().__init__()
-        
+        self.stack = []
 
     def put(self, key, item):
         """Caches a new item and makes sure
@@ -20,13 +20,12 @@ class LIFOCache(BaseCaching):
         """
         if not (key and item):
             return
-        self.cache_data[key] = item
-        # check length of the cache_data with MAX_ITEMS
-        if len(self.cache_data) >= self.MAX_ITEMS:
-            last_key = list(self.cache_data.keys())[-1]
-            del self.cache_data[last_key]
-            print(f'DISCARD: {last_key}')
         if key and item:
+            # check length of the cache_data with MAX_ITEMS
+            if len(self.cache_data) >= self.MAX_ITEMS:
+                last_key = list(self.cache_data.keys())[-1]
+                self.cache_data.pop(last_key)
+                print(f'DISCARD: {last_key}')
             self.cache_data[key] = item
 
     def get(self, key):
