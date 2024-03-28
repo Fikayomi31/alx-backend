@@ -17,6 +17,8 @@ class BasicCache(BaseCaching):
             key: key of the item
             item: the item of the key
         """
+        if not (key and item):
+            return
         if key and item:
             self.cache_data[key] = item
 
@@ -26,5 +28,7 @@ class BasicCache(BaseCaching):
         Args:
             key: key of the item
         """
+        if not key or key not in self.cache_data:
+            return
         if key:
             return self.cache_data.get(key, None)
