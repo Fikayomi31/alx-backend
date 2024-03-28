@@ -21,11 +21,11 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data[key] = item
         # check length of the cache_data with MAX_ITEMS
-        if len(self.cache_data) >= self.MAX_ITEMS:
+        if len(self.cache_data) > self.MAX_ITEMS:
             # iterating over the items in the self.cache_data
-            order = iter(self.cache_data.items())
+            diter = iter(self.cache_data.items())
             # next is used to retrieve the first item
-            first_key, first_value = next(order)
+            first_key, first_value = next(diter)
             del self.cache_data[first_key]
             print(f'DISCARD: {first_key}')
 
@@ -34,6 +34,5 @@ class FIFOCache(BaseCaching):
         Args:
             key: key to the value
         """
-        if not key or key not in self.cache_data:
-            return
-        self.cache_data.get(key, None)
+        if key:
+            return self.cache_data.get(key, None)

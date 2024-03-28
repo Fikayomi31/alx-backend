@@ -23,10 +23,12 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
         # check length of the cache_data with MAX_ITEMS
         if len(self.cache_data) >= self.MAX_ITEMS and key not in self.stack:
+            # Getting the last item
             last_key = self.stack.pop()
             del self.cache_data[last_key]
             print(f'DISCARD: {last_key}')
         if key and item:
+            # appending inside stack to keep track of last item
             self.stack.append(key)
             self.cache_data[key] = item
 
@@ -35,5 +37,7 @@ class LIFOCache(BaseCaching):
         Args:
             key: key to the value
         """
-        if key:
-            return self.cache_data.get(key, None)
+        if not key or key not in self.cache_data:
+            return
+        
+        return self.cache_data.get(key, None)
