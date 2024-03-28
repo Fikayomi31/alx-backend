@@ -37,7 +37,5 @@ class LIFOCache(BaseCaching):
         Args:
             key: key to the value
         """
-        if not key or key not in self.cache_data:
-            return
-        
-        return self.cache_data.get(key, None)
+        if key:
+            return self.cache_data.get(key, None)
