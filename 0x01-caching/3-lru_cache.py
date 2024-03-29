@@ -12,7 +12,7 @@ class LRUCache(BaseCaching):
         self.queue = []
 
     def put(self, key, item):
-        """Assign key and item to th3 cache system"""
+        """Assign key and item to the cache system"""
         if not (key and item):
             return
         if key in self.queue:
@@ -20,9 +20,9 @@ class LRUCache(BaseCaching):
         self.queue.append(key)
 
         if len(self.cache_data) >= self.MAX_ITEMS:
-            curr = self.queue.pop(0)
-            del self.cache_data[curr]
-            print(f'DISCARD: {curr}')
+            dict_del = self.queue.pop(0)
+            del self.cache_data[dict_del]
+            print(f'DISCARD: {dict_del}')
         self.cache_data[key] = item
 
     def get(self, key):
