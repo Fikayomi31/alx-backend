@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""doc
+""" function with the babel.localeselector decorator
 """
 from flask import Flask, render_template, request
 from flask_babel import Babel
+
 
 class Config:
     """The configuration class for babel
@@ -12,15 +13,16 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-
 app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
+
 
 @babel.localeselector
 def get_locale():
     """Return best match"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/')
 def index():
