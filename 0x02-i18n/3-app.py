@@ -2,14 +2,14 @@
 """ Use the _ or gettext function to parametrize your templates.
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 
 
 class Config:
     """The configuration class for babel
     """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_LOCALE = 'fr'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
@@ -27,9 +27,7 @@ def get_locale():
 @app.route('/')
 def index():
     """Return home page template"""
-    home_title = gettext('Welcome to Holberton')
-    home_header = gettext('Hello world')
-    return render_template('2-index.html', home_title=home_title, home_header=home_header)
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
