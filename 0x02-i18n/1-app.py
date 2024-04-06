@@ -7,6 +7,7 @@ from flask_babel import Babel
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config:
     """The configuration class for babel
     """
@@ -16,6 +17,7 @@ class Config:
 
 
 app.config.from_object(Config)
+
 
 @app.route('/')
 def index():
