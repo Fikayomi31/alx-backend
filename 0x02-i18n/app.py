@@ -65,6 +65,7 @@ def get_timezone():
         pass
     return 'UTC'
 
+
 @app.route('/')
 def index():
     """Return the home page"""
