@@ -18,15 +18,15 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale() -> str:
-    """ doc doc doc """
+def get_locale():
+    """ Return the locale pass in the grument """
     if request.args.get("locale") in app.config["LANGUAGES"]:
         return request.args.get("locale")
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route("/")
-def index() -> str:
+def index():
     """doc doc doc"""
     return render_template("4-index.html")
 
