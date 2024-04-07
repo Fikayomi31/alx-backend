@@ -54,7 +54,7 @@ def get_locale():
         return user_setting_locale
     if (locale_header and locale_header in app.config['LANGUAGES']):
         return request.accept_languages.best_match(app.config['LANGAUGES'])
-    return app.config['LANGAUGES'][0]
+    return app.config['LANGUAGES'][0]
 
 
 @app.route('/')
