@@ -14,6 +14,8 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """DOC DOC DOC
+        """
         self.__dataset = None
         self.__indexed_dataset = None
 
@@ -40,6 +42,8 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """doc doc doc
+        """
         assert index in range(len(self.dataset()))
         index_dict = self.indexed_dataset()
         if index == 0 and page_size == 10:
@@ -51,5 +55,4 @@ class Server:
             "index": index,
             "next_index": index + 1,
             "page_size": page_size,
-            "data": data
-        }
+            "data": data}
