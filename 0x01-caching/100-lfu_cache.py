@@ -11,6 +11,7 @@ class LFUCache(BaseCaching):
         super().__init__()
         # Keep track of the frequency of each key.
         self.freq = {}
+
     def put(self, key, item):
         """Assigning to the dictionary
         Args:
