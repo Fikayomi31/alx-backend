@@ -17,7 +17,7 @@ function setNewSchool(schoolName, value) {
 const get = promisify(client.get).bind(client);
 
 async function displaySchoolValue(schoolName) {
-  const res = await client.get(schoolName).catch((error) => {
+  const res = await get(schoolName).catch((error) => {
     if (error) {
       console.log(error);
       throw error;
